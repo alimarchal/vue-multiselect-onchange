@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VUE JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<form>
+    <div id="app">
+        <select name="Region" @change="selectRegion($event)">
+            <option value="">None</option>
+            <option v-for="region in regions" v-bind:value="region">{{region}}</option>
+        </select>
+
+        <select name="Zone" @change="selectZone($event)" v-if="zoneFlag">
+            <option value="">None</option>
+            <option v-if="regionValue === 'North'" v-for="northZone in northZones" v-bind:value="northZone">{{northZone}}</option>
+            <option v-if="regionValue === 'South'" v-for="southZone in southZones" v-bind:value="southZone">{{southZone}}</option>
+        </select>
+
+        <select name="District" @change="selectDistrict($event)" v-if="districtFlag">
+            <option value="">None</option>
+            <option v-if="zoneValue === 'Muzaffarabad'" v-for="muzaffarabadZone in muzaffarabadZones"
+                    v-bind:value="muzaffarabadZone">{{muzaffarabadZone}}
+            </option>
+            <option v-if="zoneValue === 'Rawalakot'" v-for="rawalakotZone in rawalakotZones" v-bind:value="rawalakotZone">{{rawalakotZone}}</option>
+            <option v-if="zoneValue === 'Mirpur'" v-for="mirpurZone in mirpurZones" v-bind:value="mirpurZone">{{mirpurZone}}</option>
+            <option v-if="zoneValue === 'Kotli'" v-for="kotliZone in kotliZones" v-bind:value="kotliZone">{{kotliZone}}</option>
+        </select>
+
+        <select name="Branch" @change="selectBranch($event)" v-if="branchFlag">
+            <option value="">None</option>
+            <option v-if="districtValue === 'Muzaffarabad'" v-for="districtMZD in districtMZDS" v-bind:value="districtMZD">{{districtMZD}}</option>
+            <option v-if="districtValue === 'Neelum'" v-for="districtNEELUM in districtNEELUMS" v-bind:value="districtNEELUM">{{districtNEELUM}}</option>
+            <option v-if="districtValue === 'Hattian'" v-for="districtHATTIAN in districtHATTIANS" v-bind:value="districtHATTIAN">{{districtHATTIAN}}</option>
+            <option v-if="districtValue === 'Poonch'" v-for="districtPOONCH in districtPOONCHS" v-bind:value="districtPOONCH">{{districtPOONCH}}</option>
+            <option v-if="districtValue === 'Sudhnoti'" v-for="districtSUDHNOTI in districtSUDHNOTIS" v-bind:value="districtSUDHNOTI">{{districtSUDHNOTI}}</option>
+            <option v-if="districtValue === 'Bagh'" v-for="districtBAGH in districtBAGHS" v-bind:value="districtBAGH">{{districtBAGH}}</option>
+            <option v-if="districtValue === 'Havelli'" v-for="districtHAVELLI in districtHAVELLIS" v-bind:value="districtHAVELLI">{{districtHAVELLI}}</option>
+            <option v-if="districtValue === 'Mirpur'" v-for="districtMIRPUR in districtMIRPURS" v-bind:value="districtMIRPUR">{{districtMIRPUR}}</option>
+            <option v-if="districtValue === 'Bhimber'" v-for="districtBHIMBER in districtBHIMBERS" v-bind:value="districtBHIMBER">{{districtBHIMBER}}</option>
+            <option v-if="districtValue === 'Kotli'" v-for="districtKOTLI in districtKOTLIS" v-bind:value="districtKOTLI">{{districtKOTLI}}</option>
+        </select>
+
+
+    </div>
+    <input type="submit">
+</form>
+
+
+<script src="vue.js"></script>
+</body>
+</html>
